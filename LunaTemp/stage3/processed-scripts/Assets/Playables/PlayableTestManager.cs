@@ -8,6 +8,10 @@ public class PlayableTestManager : MonoBehaviour
 {
     [LunaPlaygroundField("Amount of lives", 1, "Game Settings")]
     public int maxLives = 3;
+    [LunaPlaygroundField("Test Dummy Parameter 1", 1, "Game Settings")]
+    public int tes1 = 3;
+    [LunaPlaygroundField("Test Dummy Parameter 2", 1, "Game Settings")]
+    public int test2 = 3;
 
     [SerializeField] private float blastRadius = 10f;
     [SerializeField] private float forceMin = 30f;
@@ -21,6 +25,7 @@ public class PlayableTestManager : MonoBehaviour
     private void Start()
     {
         Luna.Unity.LifeCycle.GameStarted(); //show end
+        Luna.Unity.Analytics.LogEvent("SuccessfullyLoaded", 2);
     }
 
     public void InstantiateBalls()

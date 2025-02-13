@@ -694,13 +694,15 @@ Deserializers["PlayableTestManager"] = function (request, data, root) {
   var i462 = root || request.c( 'PlayableTestManager' )
   var i463 = data
   i462.maxLives = i463[0]
-  i462.blastRadius = i463[1]
-  i462.forceMin = i463[2]
-  i462.forceMax = i463[3]
-  i462.ballCount = i463[4]
-  request.r(i463[5], i463[6], 0, i462, 'forcePos')
-  request.r(i463[7], i463[8], 0, i462, 'instantiatePos')
-  request.r(i463[9], i463[10], 0, i462, 'ball')
+  i462.tes1 = i463[1]
+  i462.test2 = i463[2]
+  i462.blastRadius = i463[3]
+  i462.forceMin = i463[4]
+  i462.forceMax = i463[5]
+  i462.ballCount = i463[6]
+  request.r(i463[7], i463[8], 0, i462, 'forcePos')
+  request.r(i463[9], i463[10], 0, i462, 'instantiatePos')
+  request.r(i463[11], i463[12], 0, i462, 'ball')
   return i462
 }
 
@@ -1305,9 +1307,9 @@ Deserializers.isAntiAliasingEnabled = "False";
 
 Deserializers.isRuntimeAnalysisEnabledForCode = "False";
 
-Deserializers.runtimeAnalysisExcludedClassesCount = "1763";
+Deserializers.runtimeAnalysisExcludedClassesCount = "1750";
 
-Deserializers.runtimeAnalysisExcludedMethodsCount = "3139";
+Deserializers.runtimeAnalysisExcludedMethodsCount = "3206";
 
 Deserializers.runtimeAnalysisExcludedModules = "physics2d, particle-system, reflection, mecanim-wasm";
 
@@ -1331,7 +1333,7 @@ Deserializers.graphicsConstraint = 28;
 
 Deserializers.linearColorSpace = false;
 
-Deserializers.buildID = "8fe1c990-5da4-4056-9a9c-4f75e3cce2a6";
+Deserializers.buildID = "ec3760a7-70d8-4c76-8124-0ce607323e20";
 
 Deserializers.runtimeInitializeOnLoadInfos = [[["UnityEngine","Experimental","Rendering","ScriptableRuntimeReflectionSystemSettings","ScriptingDirtyReflectionSystemInstance"]],[["Unity","VisualScripting","RuntimeVSUsageUtility","RuntimeInitializeOnLoadBeforeSceneLoad"]],[],[],[]];
 
