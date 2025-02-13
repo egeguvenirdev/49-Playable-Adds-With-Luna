@@ -21,6 +21,7 @@ public class PlayableTestManager : MonoBehaviour
     private void Start()
     {
         Luna.Unity.LifeCycle.GameStarted(); //show end
+        Luna.Unity.Analytics.LogEvent("SuccessfullyLoaded", 2);
     }
 
     public void InstantiateBalls()
