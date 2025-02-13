@@ -1,5 +1,5 @@
 /**
- * @version 1.0.9175.29939
+ * @version 1.0.9175.31519
  * @copyright anton
  * @compiler Bridge.NET 17.9.42-luna
  */
@@ -16,6 +16,7 @@ Bridge.assembly("UnityScriptsCompiler", function ($asm, globals) {
     Bridge.define("PlayableTestManager", {
         inherits: [UnityEngine.MonoBehaviour],
         fields: {
+            maxLives: 0,
             blastRadius: 0,
             forceMin: 0,
             forceMax: 0,
@@ -27,6 +28,7 @@ Bridge.assembly("UnityScriptsCompiler", function ($asm, globals) {
         },
         ctors: {
             init: function () {
+                this.maxLives = 3;
                 this.blastRadius = 10.0;
                 this.forceMin = 30.0;
                 this.forceMax = 60;
@@ -35,14 +37,25 @@ Bridge.assembly("UnityScriptsCompiler", function ($asm, globals) {
             }
         },
         methods: {
+            /*PlayableTestManager.Start start.*/
+            Start: function () {
+                Luna.Unity.LifeCycle.GameStarted(); //show end
+            },
+            /*PlayableTestManager.Start end.*/
+
             /*PlayableTestManager.InstantiateBalls start.*/
             InstantiateBalls: function () {
-                this.StartCoroutine$1(this.InstantateRoutine());
+                if (this.maxLives > 0) {
+                    this.StartCoroutine$1(this.InstantateRoutine());
+                } else {
+                    this.ShowEnd();
+                }
             },
             /*PlayableTestManager.InstantiateBalls end.*/
 
             /*PlayableTestManager.ResetBalls start.*/
             ResetBalls: function () {
+                Luna.Unity.Analytics.LogEvent$1("RemovedBalls", 1);
                 for (var i = 0; i < this.balls.Count; i = (i + 1) | 0) {
                     if (UnityEngine.GameObject.op_Inequality(this.balls.getItem(i), null)) {
                         UnityEngine.MonoBehaviour.Destroy(this.balls.getItem(i));
@@ -50,6 +63,7 @@ Bridge.assembly("UnityScriptsCompiler", function ($asm, globals) {
                 }
 
                 this.balls.clear();
+                Luna.Unity.LifeCycle.GameUpdated();
             },
             /*PlayableTestManager.ResetBalls end.*/
 
@@ -68,7 +82,9 @@ Bridge.assembly("UnityScriptsCompiler", function ($asm, globals) {
                         for (;;) {
                             switch ($step) {
                                 case 0: {
-                                    i = 0;
+                                    Luna.Unity.Analytics.LogEvent$1("InstantiatedBalls", 0);
+
+                                        i = 0;
                                         $step = 1;
                                         continue;
                                 }
@@ -125,6 +141,13 @@ Bridge.assembly("UnityScriptsCompiler", function ($asm, globals) {
             },
             /*PlayableTestManager.InstallFullGame end.*/
 
+            /*PlayableTestManager.ShowEnd start.*/
+            ShowEnd: function () {
+                Luna.Unity.Analytics.LogEvent(Luna.Unity.Analytics.EventType.EndCardShown);
+                Luna.Unity.LifeCycle.GameEnded(); //show end
+            },
+            /*PlayableTestManager.ShowEnd end.*/
+
 
         }
     });
@@ -135,7 +158,7 @@ Bridge.assembly("UnityScriptsCompiler", function ($asm, globals) {
         $n = ["System","System.Collections","UnityEngine","System.Collections.Generic"];
 
     /*PlayableTestManager start.*/
-    $m("PlayableTestManager", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"InstallFullGame","t":8,"sn":"InstallFullGame","rt":$n[0].Void},{"a":1,"n":"InstantateRoutine","t":8,"sn":"InstantateRoutine","rt":$n[1].IEnumerator},{"a":2,"n":"InstantiateBalls","t":8,"sn":"InstantiateBalls","rt":$n[0].Void},{"a":2,"n":"ResetBalls","t":8,"sn":"ResetBalls","rt":$n[0].Void},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"ball","t":4,"rt":$n[2].GameObject,"sn":"ball"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"ballCount","t":4,"rt":$n[0].Int32,"sn":"ballCount","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"balls","t":4,"rt":$n[3].List$1(UnityEngine.GameObject),"sn":"balls"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"blastRadius","t":4,"rt":$n[0].Single,"sn":"blastRadius","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"forceMax","t":4,"rt":$n[0].Single,"sn":"forceMax","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"forceMin","t":4,"rt":$n[0].Single,"sn":"forceMin","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"forcePos","t":4,"rt":$n[2].Transform,"sn":"forcePos"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"instantiatePos","t":4,"rt":$n[2].Transform,"sn":"instantiatePos"}]}; }, $n);
+    $m("PlayableTestManager", function () { return {"att":1048577,"a":2,"m":[{"a":2,"isSynthetic":true,"n":".ctor","t":1,"sn":"ctor"},{"a":2,"n":"InstallFullGame","t":8,"sn":"InstallFullGame","rt":$n[0].Void},{"a":1,"n":"InstantateRoutine","t":8,"sn":"InstantateRoutine","rt":$n[1].IEnumerator},{"a":2,"n":"InstantiateBalls","t":8,"sn":"InstantiateBalls","rt":$n[0].Void},{"a":2,"n":"ResetBalls","t":8,"sn":"ResetBalls","rt":$n[0].Void},{"a":2,"n":"ShowEnd","t":8,"sn":"ShowEnd","rt":$n[0].Void},{"a":1,"n":"Start","t":8,"sn":"Start","rt":$n[0].Void},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"ball","t":4,"rt":$n[2].GameObject,"sn":"ball"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"ballCount","t":4,"rt":$n[0].Int32,"sn":"ballCount","box":function ($v) { return Bridge.box($v, System.Int32);}},{"a":1,"n":"balls","t":4,"rt":$n[3].List$1(UnityEngine.GameObject),"sn":"balls"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"blastRadius","t":4,"rt":$n[0].Single,"sn":"blastRadius","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"forceMax","t":4,"rt":$n[0].Single,"sn":"forceMax","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"forceMin","t":4,"rt":$n[0].Single,"sn":"forceMin","box":function ($v) { return Bridge.box($v, System.Single, System.Single.format, System.Single.getHashCode);}},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"forcePos","t":4,"rt":$n[2].Transform,"sn":"forcePos"},{"at":[new UnityEngine.SerializeFieldAttribute()],"a":1,"n":"instantiatePos","t":4,"rt":$n[2].Transform,"sn":"instantiatePos"},{"at":[new UnityEngine.LunaPlaygroundFieldAttribute("Amount of lives", 1, "Game Settings", false, null)],"a":2,"n":"maxLives","t":4,"rt":$n[0].Int32,"sn":"maxLives","box":function ($v) { return Bridge.box($v, System.Int32);}}]}; }, $n);
     /*PlayableTestManager end.*/
 
     /*IAmAnEmptyScriptJustToMakeCodelessProjectsCompileProperty start.*/

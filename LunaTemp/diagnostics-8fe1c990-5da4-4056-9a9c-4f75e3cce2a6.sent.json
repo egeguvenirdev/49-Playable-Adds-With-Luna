@@ -1,12 +1,12 @@
 {
-    "BuildID": "3dbc2edb-dd33-4f12-8354-4a2b94418561",
+    "BuildID": "8fe1c990-5da4-4056-9a9c-4f75e3cce2a6",
     "Command": "project:build",
     "ProjectID": "86c95cefbe542cc4181437bf599fdd6f",
-    "ProjectStateHash": "50bc2919212174409e136222bdbb68f23a156f8d3b83137124f967958339e66d",
+    "ProjectStateHash": "816f0d9d6ee9acacd414e1426ae71b6c8c57ba39dfa119c303dc0b630c0855a2",
     "StageCompletedAt": 3,
     "EarliestFatalError": 0,
-    "StartTime": 1739453871506,
-    "EndTime": 1739453885782,
+    "StartTime": 1739457029397,
+    "EndTime": 1739457048891,
     "PlaygroundUserID": 21084,
     "OperatingSystem": "win32",
     "UnityPackageID": null,
@@ -16,47 +16,21 @@
     "LogCount": 6,
     "Logs": [
         {
-            "LogID": "dc7d3227-6422-4aeb-a5ad-b7c2a895eeb7",
-            "Order": 4,
-            "Timestamp": 1739453885888,
-            "Stage": 3,
-            "ErrorType": 1,
-            "ErrorCode": "LP3006",
-            "Description": "You are not using the Luna API: LifeCycle.GameEnded",
-            "Details": [
-                "You are not using the Luna API: LifeCycle.GameEnded. Some ad networks require these calls. Please add these calls to ensure your playable works on all ad networks. Check documentation for more information."
-            ],
-            "DescriptionValues": [
-                "LifeCycle",
-                "GameEnded"
-            ],
-            "DetailsValues": [
-                "LifeCycle",
-                "GameEnded"
-            ],
-            "LogCount": 1,
-            "LinePosition": null,
-            "FilePath": "",
-            "ClassName": "",
-            "MemberName": "",
-            "Severity": 0
-        },
-        {
-            "LogID": "50d225bf-f5a3-4f43-9bd1-df073cb0a873",
-            "Order": 4,
-            "Timestamp": 1739453885888,
+            "LogID": "60815115-d0b2-4b27-9ef4-2c0037852758",
+            "Order": 5,
+            "Timestamp": 1739457048998,
             "Stage": 3,
             "ErrorType": 3,
-            "ErrorCode": "LP3007",
-            "Description": "You are not using any custom events",
+            "ErrorCode": "LP3008",
+            "Description": "You are only using: 2 custom events.",
             "Details": [
-                "You are not using any custom events. It is recommended to use custom events to have a better understanding of the playable."
+                "You are only using 2 custom events. It is recommended to use more custom events to have a better understanding of the playable."
             ],
             "DescriptionValues": [
-                ""
+                "2"
             ],
             "DetailsValues": [
-                ""
+                "2"
             ],
             "LogCount": 1,
             "LinePosition": null,
@@ -66,18 +40,24 @@
             "Severity": 0
         },
         {
-            "LogID": "505c8fb1-d810-45f5-8bb1-01ee5b816968",
-            "Order": 4,
-            "Timestamp": 1739453885888,
+            "LogID": "95f4cbe9-05c8-4aae-9aeb-db1e24920115",
+            "Order": 5,
+            "Timestamp": 1739457048998,
             "Stage": 3,
             "ErrorType": 3,
-            "ErrorCode": "LP3011",
-            "Description": "You are not using any LunaPlaygroundFields attributes.",
+            "ErrorCode": "LP3012",
+            "Description": "You are not using the minimum recommended amount of LunaPlaygroundFields attributes.",
             "Details": [
-                "You are not using any LunaPlaygroundFields attributes, it allows you to configure your playable to different concepts to find the best variation, which can drastically improve playable performance on all ad networks."
+                "You are not using the minimum recommended amount of LunaPlaygroundFields attributes, you are using: 1 and we recommend using a minimum of: 3. It allows you to configure your playable to different concepts to find the best variation, which can drastically improve playable performance on all ad networks."
             ],
-            "DescriptionValues": null,
-            "DetailsValues": null,
+            "DescriptionValues": [
+                "1",
+                "3"
+            ],
+            "DetailsValues": [
+                "1",
+                "3"
+            ],
             "LogCount": 1,
             "LinePosition": null,
             "FilePath": "",
@@ -86,9 +66,29 @@
             "Severity": 0
         },
         {
-            "LogID": "6fe26928-3e5d-4194-8c06-a959667d26de",
+            "LogID": "adca639d-41f9-4ceb-acf4-b034b4bb2ab8",
             "Order": 0,
-            "Timestamp": 1739453873797,
+            "Timestamp": 1739457032063,
+            "Stage": 1,
+            "ErrorType": 2,
+            "ErrorCode": "LP1014",
+            "Description": "We recommend running Runtime Analysis to find and remove all unused code",
+            "Details": [
+                "Navigate to the Runtime Analysis → Code tab to enable code stripping. Before uploading the playable, please make sure to have played all scenario’s of the playable in a development build to make Runtime Analysis work properly."
+            ],
+            "DescriptionValues": [],
+            "DetailsValues": [],
+            "LogCount": 1,
+            "LinePosition": 0,
+            "FilePath": "",
+            "ClassName": "",
+            "MemberName": "",
+            "Severity": 0
+        },
+        {
+            "LogID": "e63e1b1b-78a9-448c-abda-a64f1da57e0e",
+            "Order": 1,
+            "Timestamp": 1739457032075,
             "Stage": 1,
             "ErrorType": 0,
             "ErrorCode": "LP1015",
@@ -108,9 +108,9 @@
             "Severity": 0
         },
         {
-            "LogID": "f65441d6-caff-417d-83f9-a43cb2bf4578",
-            "Order": 1,
-            "Timestamp": 1739453873797,
+            "LogID": "8be5a2f7-8d4f-4466-bfdd-1cd51589a4dc",
+            "Order": 2,
+            "Timestamp": 1739457032075,
             "Stage": 1,
             "ErrorType": 0,
             "ErrorCode": "LP1032",
@@ -132,9 +132,9 @@
             "Severity": 0
         },
         {
-            "LogID": "f16a6aa0-2c15-428b-b2bf-103a0c5c6353",
-            "Order": 2,
-            "Timestamp": 1739453873798,
+            "LogID": "9f8e051b-c450-4216-9825-71afae72bb66",
+            "Order": 3,
+            "Timestamp": 1739457032077,
             "Stage": 1,
             "ErrorType": 2,
             "ErrorCode": "LP1010",
