@@ -5,7 +5,8 @@ using UnityEngine;
 public class ThrowController : CardPile
 {
     [SerializeField] private Vector3 offset;
-    
+    [SerializeField] private float duration;
+    [SerializeField] private CardLayer.Ease ease;
     public void DiscardForce(List<int> discardList)
     {
         for (var i = 0; i < discardList.Count; i++)
@@ -29,9 +30,7 @@ public class ThrowController : CardPile
     {
         var index = Cards.IndexOf(card);
         card.transform.SetParent(Slots[index],worldPositionStays:true);
-        card.transform.localPosition = Vector3.zero;
-        card.transform.localRotation = Quaternion.Euler(Vector3.zero);
-        card.transform.localScale = Vector3.one;
+        StartCoroutine(CardLayer.Instance.UpdatePosition(card.transform, duration: duration, ease:ease));
         card.SortingOrder = sortingOrderMultiplier + index;
         card.Source = CardSource.Throw;
     }

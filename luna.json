@@ -80,8 +80,8 @@
             "externalSources": [],
             "externalJSLibraries": [],
             "scriptingDefines": [],
-            "msbuildVersion": "17.10",
-            "monoVersion": "8.0.5",
+            "msbuildVersion": "17.13",
+            "monoVersion": "N/A",
             "dotnetVersion": ""
         },
         "assets": {

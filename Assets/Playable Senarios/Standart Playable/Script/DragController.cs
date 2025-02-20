@@ -73,7 +73,7 @@ public class DragController : MonoBehaviour
     private  void ThrowCardToThrowZone(Card card, bool isSamePlace = false)
     {
         if (!isSamePlace)
-         {
+        {
             //_cardLayer.OnThrowCard?.Invoke(card.No);
         }
         if (card.Source == CardSource.Hand)
@@ -92,7 +92,7 @@ public class DragController : MonoBehaviour
          else
              _cardLayer.handController.Add(card, index: index);
         
-        //_cardLayer.handController.CheckHandChange();
+         //_cardLayer.handController.CheckHandChange();
     }
     private void AddCard(Card card)
     {
@@ -102,9 +102,7 @@ public class DragController : MonoBehaviour
     private void MoveToZero(Card card, float delay = 0f, bool force = false)
     {
         card.transform.SetParent(slot,worldPositionStays:true);
-        card.transform.localPosition = Vector3.zero;
-        card.transform.localRotation = Quaternion.Euler(Vector3.zero);
-        card.transform.localScale = Vector3.one;
+        StartCoroutine(_cardLayer.UpdatePosition(card.transform, duration: .2f, force: force));
     }
 
     private void Release()

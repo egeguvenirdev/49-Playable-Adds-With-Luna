@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ public abstract class CardPile : MonoBehaviour
     public int Count => Cards.Count;
 
     public virtual void Add(Card card) => Add(card, -1);
-
+    
     protected virtual void Add(Card card, int index)
     {
         var slot = GetSlot();
@@ -85,4 +86,6 @@ public abstract class CardPile : MonoBehaviour
         return card;
     }
     
+  
 }
+

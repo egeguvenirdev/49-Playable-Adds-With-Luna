@@ -12,6 +12,8 @@ public class HandController : MonoBehaviour
     public List<Transform> _slotList = new();
     public int SlotCount => _slotList.Count;
     public int CardCount => _cardList.Count;
+    [SerializeField] private float duration;
+    [SerializeField] private CardLayer.Ease ease;
     public void Init()
     {
         _handSlotArc = GetComponent<HandSlotArc>();
@@ -46,6 +48,8 @@ public class HandController : MonoBehaviour
             _cardList[i].SortingOrder = i + sortingOrderMultiplier;
         }
     }
+
+    private Coroutine[] _slotUpdateRoutines = new Coroutine[11];
     public void UpdateSlots(bool force = false)
     {
         for (var i = 0; i < SlotCount; i++)
@@ -62,14 +66,9 @@ public class HandController : MonoBehaviour
             }
             else
             {
-                if ((slot.localPosition - targetPosition).sqrMagnitude > .01f * .01f)
-                {
-                    slot.localPosition = targetPosition;//todo: dotween
-                }
-                if (Quaternion.Angle(slot.localRotation, targetRotation) > 0.01f)
-                {
-                    slot.localRotation = targetRotation; //todo: dotween
-                }
+                if (_slotUpdateRoutines[i] != null)
+                    StopCoroutine(_slotUpdateRoutines[i]);
+                _slotUpdateRoutines[i] = StartCoroutine(CardLayer.Instance.UpdatePosition(slot, duration: .2f, ignoreScale: true, targetPosition:targetPosition, targetRotation:targetRotation));
             }
         }
     }
@@ -122,9 +121,7 @@ public class HandController : MonoBehaviour
         var index = _cardList.IndexOf(card);
         if (index < 0 || index >= SlotCount) return;
         card.transform.SetParent(_slotList[index]);
-        card.transform.localScale = Vector3.one;
-        card.transform.localPosition = Vector3.zero;
-        card.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        StartCoroutine(CardLayer.Instance.UpdatePosition(card.transform, duration: duration, ease: ease, force: force));
     }
     public int GetIndexFromWorldPosition(Vector3 mouseWorldPosition)
     {

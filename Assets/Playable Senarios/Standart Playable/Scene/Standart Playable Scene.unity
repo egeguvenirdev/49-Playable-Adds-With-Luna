@@ -688,6 +688,8 @@ MonoBehaviour:
   - {fileID: 1579119462}
   _cardList: []
   _slotList: []
+  duration: 0.2
+  ease: 0
 --- !u!1 &1240952616
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,6 +1193,8 @@ MonoBehaviour:
   slotPrefab: {fileID: 989499162}
   slotPool: []
   offset: {x: 0, y: 0, z: 0.02}
+  duration: 0.3
+  ease: 0
 --- !u!1 &1913797395
 GameObject:
   m_ObjectHideFlags: 0
