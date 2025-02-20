@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad97c81d61cafc24eb9a8567af2a86e7, type: 3}
+  m_Name: HandSettings
+  m_EditorClassIdentifier: 
+  handHeight: 0.54
+  handWidth: 12.5
+  maxCardAngle: 12.5
+  yPerCard: 0
+  zDistance: -0.02
+  handY: 0
+  handZ: 0
