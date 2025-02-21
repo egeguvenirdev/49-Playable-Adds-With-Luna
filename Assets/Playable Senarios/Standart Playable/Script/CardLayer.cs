@@ -7,6 +7,12 @@ using UnityEngine.EventSystems;
 
 public class CardLayer : MonoBehaviour
 {
+    [LunaPlaygroundField("Start Turn", 1, "Game Settings")]
+    public bool myTurn = true;
+    
+    [LunaPlaygroundField("Last Discarded Card", 1, "Card / Hand Settings")]
+    [SerializeField] private List<int> discardCardNoList = new();
+    
     public static CardLayer Instance;
     public CardPool cardPool;
     
@@ -15,15 +21,13 @@ public class CardLayer : MonoBehaviour
     public ThrowController throwController;
     public DragController dragController;
     public OpponentController opponentController;
-    [Header("Data")]
     
+    [Header("Data")]
     [SerializeField] private List<int> handStartCardNoList = new();
-    [SerializeField] private List<int> discardCardNoList = new();
     [SerializeField] private int cardsStartCount = 52;
     [SerializeField] private List<int> deckCardNoList;
     [SerializeField] private List<int> opponentThrowCardNoList = new();
     public int _opponentPlayCounter = 0;
-    public bool myTurn = true;
 
     public enum OpponentMoves
     {

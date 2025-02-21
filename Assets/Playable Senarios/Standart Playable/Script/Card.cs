@@ -74,8 +74,7 @@ public class Card : MonoBehaviour
             _highlightNo = value;
             var targetColor = new Color(1, 1, 1, 0);
             if (_highlightNo != -1) targetColor = highlightColors[_highlightNo];
-            if (highlightRenderer is not null)
-                highlightRenderer.color = targetColor;
+            if (highlightRenderer is not null) highlightRenderer.color = targetColor;
         }
     }
 

@@ -20,7 +20,7 @@ namespace GinrummyExtra
         }
         private class Hand
         {
-            internal readonly List<int[]> melds = new(); //daha az garbage
+            internal readonly List<int[]> melds = new();
             internal int left;
         }
         
