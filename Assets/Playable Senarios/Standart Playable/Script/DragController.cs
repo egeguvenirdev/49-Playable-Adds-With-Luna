@@ -65,7 +65,7 @@ public class DragController : MonoBehaviour
         {
             case CardSource.Hand:
                 card.HighlightNo = -1;
-                //_cardLayer.handController.UpdateCardHighlights(card); //todo: highlight
+                _cardLayer.handController.UpdateCardHighlights(card); 
                 return card;
             case CardSource.Deck:
             {
@@ -90,8 +90,8 @@ public class DragController : MonoBehaviour
         }
         if (card.Source == CardSource.Hand)
         {
-           // _cardLayer.handController.UpdateCardHighlights();
-           // _cardLayer.handController.CheckHandChange();
+            _cardLayer.handController.UpdateCardHighlights();
+            _cardLayer.handController.CheckHandChange();
         }
         _cardLayer.throwController.Add(card);
         _cardLayer.throwController.UpdatePositions(card);
@@ -104,7 +104,7 @@ public class DragController : MonoBehaviour
          else
              _cardLayer.handController.Add(card, index: index);
         
-         //_cardLayer.handController.CheckHandChange();
+         _cardLayer.handController.CheckHandChange();
     }
     private void AddCard(Card card)
     {
@@ -304,22 +304,24 @@ public class DragController : MonoBehaviour
     private void SlotRotationUpdate(Card selectedCard, bool force = false)
     {
         var targetRotationZ = 0f;
-        if (_draggingCardInsideHand)
+        if (selectedCard.Source == CardSource.Hand)
         {
-            targetRotationZ = -1f * _cardLayer.handController.handSlotArc.GetSlotRotationZ(_cardLayer.handController.SlotCount,_targetIndex);
+            if ( _draggingCardInsideHand) 
+                targetRotationZ = -1f * _cardLayer.handController.handSlotArc.GetSlotRotationZ(_cardLayer.handController.SlotCount,_targetIndex);
         }
         var targetRotation = Quaternion.Euler(slot.localEulerAngles.x, slot.localEulerAngles.y, targetRotationZ);
         if (!force)
         {
-            // if (_movementDirection.sqrMagnitude > 0.0001f)
-            // {
-            //     var rotationAngle = Mathf.Atan2(_movementDirection.x, _movementDirection.y) * Mathf.Rad2Deg;
-            //     var animatedRotation = Quaternion.Euler(slot.localEulerAngles.x, slot.localEulerAngles.y, rotationAngle);
-            //     slot.localRotation = Quaternion.Slerp(slot.localRotation , animatedRotation , Time.deltaTime * _draggingCardAnimationRotationSpeed);
-            // }
-            // if (Quaternion.Angle(slot.localRotation , targetRotation) > .1f)
-            //     Tween.LocalRotation(slot, targetRotation, normalizeRotationDuration, Ease.OutQuad);
-            slot.localRotation = targetRotation;
+            if (_movementDirection.sqrMagnitude > 0.0001f)
+            {
+                var rotationAngle = Mathf.Atan2(_movementDirection.x, _movementDirection.y) * Mathf.Rad2Deg;
+                var animatedRotation = Quaternion.Euler(slot.localEulerAngles.x, slot.localEulerAngles.y, rotationAngle);
+                slot.localRotation = Quaternion.Slerp(slot.localRotation , animatedRotation , Time.deltaTime * _draggingCardAnimationRotationSpeed);
+            }
+
+            DOTween.Kill(slot);
+            if (Quaternion.Angle(slot.localRotation, targetRotation) > .1f)
+                slot.DOLocalRotate(targetRotation.eulerAngles, .3f).SetEase(Ease.OutQuad);
         }
         else
         {
