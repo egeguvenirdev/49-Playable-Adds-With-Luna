@@ -45,6 +45,7 @@ public class CardLayer : MonoBehaviour
     public List<OpponentPlay> opponentPlayList = new();
     private void Awake()
     {
+        Input.multiTouchEnabled = false;
         Instance = this;
         handController.Init();
         dragController.Init();
