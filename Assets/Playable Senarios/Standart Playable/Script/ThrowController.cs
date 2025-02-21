@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class ThrowController : CardPile
 {
     [SerializeField] private Vector3 offset;
     [SerializeField] private float duration;
-    [SerializeField] private CardLayer.Ease ease;
+    [SerializeField] private Ease ease;
     public void DiscardForce(List<int> discardList)
     {
         for (var i = 0; i < discardList.Count; i++)
@@ -30,7 +31,7 @@ public class ThrowController : CardPile
     {
         var index = Cards.IndexOf(card);
         card.transform.SetParent(Slots[index],worldPositionStays:true);
-        StartCoroutine(CardLayer.Instance.UpdatePosition(card.transform, duration: duration, ease:ease));
+        CardPile.UpdatePosition(card.transform, duration: duration, ease:ease);
         card.SortingOrder = sortingOrderMultiplier + index;
         card.Source = CardSource.Throw;
     }

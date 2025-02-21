@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 [RequireComponent(typeof(HandSlotArc))]
 public class HandController : MonoBehaviour
@@ -13,7 +14,7 @@ public class HandController : MonoBehaviour
     public int SlotCount => _slotList.Count;
     public int CardCount => _cardList.Count;
     [SerializeField] private float duration;
-    [SerializeField] private CardLayer.Ease ease;
+    [SerializeField] private Ease ease;
     public void Init()
     {
         _handSlotArc = GetComponent<HandSlotArc>();
@@ -48,8 +49,6 @@ public class HandController : MonoBehaviour
             _cardList[i].SortingOrder = i + sortingOrderMultiplier;
         }
     }
-
-    private Coroutine[] _slotUpdateRoutines = new Coroutine[11];
     public void UpdateSlots(bool force = false)
     {
         for (var i = 0; i < SlotCount; i++)
@@ -66,9 +65,7 @@ public class HandController : MonoBehaviour
             }
             else
             {
-                if (_slotUpdateRoutines[i] != null)
-                    StopCoroutine(_slotUpdateRoutines[i]);
-                _slotUpdateRoutines[i] = StartCoroutine(CardLayer.Instance.UpdatePosition(slot, duration: .2f, ignoreScale: true, targetPosition:targetPosition, targetRotation:targetRotation));
+                CardPile.UpdatePosition(slot, duration: .2f, ignoreScale: true, targetPosition:targetPosition, targetRotation:targetRotation);
             }
         }
     }
@@ -121,7 +118,7 @@ public class HandController : MonoBehaviour
         var index = _cardList.IndexOf(card);
         if (index < 0 || index >= SlotCount) return;
         card.transform.SetParent(_slotList[index]);
-        StartCoroutine(CardLayer.Instance.UpdatePosition(card.transform, duration: duration, ease: ease, force: force));
+        CardPile.UpdatePosition(card.transform, duration: duration, ease: ease, force: force);
     }
     public int GetIndexFromWorldPosition(Vector3 mouseWorldPosition)
     {

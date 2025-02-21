@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 public class DragController : MonoBehaviour
 {
@@ -38,9 +39,20 @@ public class DragController : MonoBehaviour
     public void Init()
     {
         _cardLayer = CardLayer.Instance;
-        //ChangeControl(false,false,false);
+        fullDisable = false;
     }
-    public void ChangeControl(bool pickFromDeck, bool pickFromThrow, bool throwCard)
+
+    public void SetTurn(bool myTurn)
+    {
+        if (!myTurn)
+            ChangeControl(false,false,false);
+        else
+        {
+            var canThrow = _cardLayer.handController.CardCount == 11;
+            ChangeControl(pickFromDeck:!canThrow, pickFromThrow:!canThrow, throwCard:canThrow);
+        }
+    }
+    private void ChangeControl(bool pickFromDeck, bool pickFromThrow, bool throwCard)
     {
         canPickCardFromDeck = pickFromDeck;
         canPickCardFromThrow = pickFromThrow;
@@ -98,25 +110,27 @@ public class DragController : MonoBehaviour
     {
         draggingCard = card;
     }
-    
+
+    private Sequence _moveZero;
     private void MoveToZero(Card card, float delay = 0f, bool force = false)
     {
         card.transform.SetParent(slot,worldPositionStays:true);
-        StartCoroutine(_cardLayer.UpdatePosition(card.transform, duration: .2f, force: force));
+        _moveZero = CardPile.UpdatePosition(card.transform,duration: .2f, force: force);
     }
-
+    
     private void Release()
     {
         if (!_clicked) return;
         _clicked = false;
         if (draggingCard is null) return;
-        //ScaleAnimation(scaleUp:false);
+        if (_moveZero.active)
+            _moveZero.Kill();
         if (_draggingCardInsideHand)
         {
             //if (draggingCard.Source == CardSource.Throw)
-                //cardLayer.OnPickCard?.Invoke(draggingCard.No,false);
-            //if (draggingCard.Source != CardSource.Hand)
-               // MoveEnd();
+            //cardLayer.OnPickCard?.Invoke(draggingCard.No,false);
+            if (draggingCard.Source != CardSource.Hand)
+                MoveEnd();
             AddCardInHand(draggingCard);
         }
         else
@@ -124,14 +138,14 @@ public class DragController : MonoBehaviour
             switch (draggingCard.Source)
             {
                 case CardSource.Hand when lastPickedCardFromThrowZoneNo == draggingCard.No || !canThrowCard:
-                   // cardLayer?.OnTryToThrowCard?.Invoke(draggingCard);
+                    // cardLayer?.OnTryToThrowCard?.Invoke(draggingCard);
                     AddCardInHand(draggingCard, _lastHandIndexOnClick);
                     draggingCard = null;
                     return;
                 case CardSource.Hand:
                     //cardLayer?.OnTryToThrowCard?.Invoke(draggingCard);
                     ThrowCardToThrowZone(draggingCard);
-                    //MoveEnd();
+                    MoveEnd(throwCard:true);
                     break;
                 case CardSource.Throw:
                     ThrowCardToThrowZone(draggingCard,true);
@@ -141,12 +155,13 @@ public class DragController : MonoBehaviour
                     if ((Time.time - _startPickTime) > DeckToHandThreshold) 
                     {
                         ThrowCardToThrowZone(draggingCard);
+                        MoveEnd(throwCard:true);
                     }
                     else
                     {
                         AddCardInHand(draggingCard);
+                        MoveEnd();
                     }
-                    MoveEnd();
                     break;
                 }
                 case CardSource.None:
@@ -156,9 +171,18 @@ public class DragController : MonoBehaviour
         }
         draggingCard = null;
     }
-    private void MoveEnd()
+    private void MoveEnd(bool throwCard = false)
     {
-        //cardLayer.OnMoved?.Invoke();
+        if (!throwCard)
+        {
+            var canThrow = _cardLayer.handController.CardCount == 11;
+            ChangeControl(pickFromDeck:!canThrow, pickFromThrow:!canThrow, throwCard:canThrow);
+        }
+        else
+        {
+            ChangeControl(false,false,false);
+            _cardLayer.ChangeTurn();
+        }
     }
     
     private Vector3 GetSlotPosition()

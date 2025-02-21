@@ -176,11 +176,30 @@ MonoBehaviour:
   deckController: {fileID: 1657524480}
   throwController: {fileID: 1740051630}
   dragController: {fileID: 423464774}
+  opponentController: {fileID: 350861029}
   handStartCardNoList: 00000000010000000200000003000000040000000500000006000000070000000800000009000000
   discardCardNoList: 0a000000
   cardsStartCount: 32
   deckCardNoList: 0b0000000c0000000d0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e000000
-  lastCardInHand: 0
+  opponentThrowCardNoList: 15000000160000001700000018000000190000001a0000001b0000001c000000
+  _opponentPlayCounter: 0
+  myTurn: 1
+  opponentPlayList:
+  - move: 0
+    pickDelay: 1
+    throwDelay: 1
+  - move: 0
+    pickDelay: 1
+    throwDelay: 1
+  - move: 0
+    pickDelay: 1
+    throwDelay: 1
+  - move: 0
+    pickDelay: 1
+    throwDelay: 1
+  - move: 0
+    pickDelay: 1
+    throwDelay: 1
 --- !u!114 &63589893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,6 +353,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 350861028}
+  - component: {fileID: 350861029}
   m_Layer: 0
   m_Name: Opponent
   m_TagString: Untagged
@@ -351,11 +371,29 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 7.18, z: 2.62}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1915661258}
   m_Father: {fileID: 63589891}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!114 &350861029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350861027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb7a7d108e658d640abddf18b8f99fa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrderMultiplier: 80
+  slotPrefab: {fileID: 1915661258}
+  slotPool: []
+  duration: 0.3
+  ease: 1
 --- !u!1 &393094277
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,11 +481,11 @@ MonoBehaviour:
   draggingCard: {fileID: 0}
   slot: {fileID: 893903059}
   handEdge: {fileID: 1240952617}
-  fullDisable: 0
+  fullDisable: 1
   canFreeControl: 1
-  canPickCardFromDeck: 1
-  canPickCardFromThrow: 1
-  canThrowCard: 1
+  canPickCardFromDeck: 0
+  canPickCardFromThrow: 0
+  canThrowCard: 0
 --- !u!1 &736645676
 GameObject:
   m_ObjectHideFlags: 0
@@ -1250,6 +1288,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 200, y: 200, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1915661257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1915661258}
+  m_Layer: 0
+  m_Name: Slot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1915661258
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915661257}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 350861028}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1991193269
 GameObject:
   m_ObjectHideFlags: 0
