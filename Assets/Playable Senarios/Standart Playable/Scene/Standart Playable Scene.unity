@@ -302,6 +302,51 @@ MonoBehaviour:
   - move: 0
     pickDelay: 1
     throwDelay: 1
+  - move: 0
+    pickDelay: 1
+    throwDelay: 1
+  - move: 0
+    pickDelay: 1
+    throwDelay: 1
+  - move: 0
+    pickDelay: 1
+    throwDelay: 1
+  - move: 0
+    pickDelay: 1
+    throwDelay: 1
+  - move: 0
+    pickDelay: 1
+    throwDelay: 1
+  - move: 0
+    pickDelay: 1
+    throwDelay: 1
+  - move: 0
+    pickDelay: 1
+    throwDelay: 1
+  - move: 0
+    pickDelay: 1
+    throwDelay: 1
+  - move: 0
+    pickDelay: 1
+    throwDelay: 1
+  - move: 0
+    pickDelay: 1
+    throwDelay: 1
+  - move: 0
+    pickDelay: 1
+    throwDelay: 1
+  - move: 0
+    pickDelay: 1
+    throwDelay: 1
+  - move: 0
+    pickDelay: 1
+    throwDelay: 1
+  - move: 0
+    pickDelay: 1
+    throwDelay: 1
+  - move: 0
+    pickDelay: 1
+    throwDelay: 1
 --- !u!114 &63589893
 MonoBehaviour:
   m_ObjectHideFlags: 0

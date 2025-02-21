@@ -121,7 +121,7 @@ public class HandController : MonoBehaviour
         if (!_cardList.Contains(card))
         {
             var slot = GetSlot();
-            if (index == -1 || index == CardCount - 1)
+            if (index == -1 || index > CardCount - 1)
             {
                 _cardList.Add(card);
                 if (!_slotList.Contains(slot))
