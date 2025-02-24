@@ -10,6 +10,8 @@ public class CardLayer : MonoBehaviour
 {
     [LunaPlaygroundField("Start Turn", 1, "Game Settings")]
     public bool myTurn = true;
+    [LunaPlaygroundField("Game Type -> 0 GinKnock / 1 StraightGin ", 2, "Game Settings")]
+    public int straightGin;
     
     [LunaPlaygroundField("Last Discarded Card", 1, "Card / Hand Settings")]
     public string discardedCards = "1,2,3";
@@ -31,6 +33,8 @@ public class CardLayer : MonoBehaviour
     [SerializeField] private int pickDelay = 1;
     [LunaPlaygroundField("Opponent Throw Delay", 2, "Opponent Settings")]
     [SerializeField] private int throwDelay = 1;
+    [LunaPlaygroundField("Opponent Remaining Turn To Win", 2, "Opponent Settings")]
+    public int opponentWinConditionTargetPlayIndex;
 
     public static CardLayer Instance;
     public CardPool cardPool;
@@ -44,8 +48,7 @@ public class CardLayer : MonoBehaviour
     [Header("Data")]
     [SerializeField] private int cardsStartCount = 52;
     public int _opponentPlayCounter = 0;
-    public int straightGin;
-    public int opponentWinConditionTargetPlayIndex;
+
     
     private void Awake()
     {
