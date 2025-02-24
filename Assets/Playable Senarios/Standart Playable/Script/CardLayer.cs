@@ -33,7 +33,7 @@ public class CardLayer : MonoBehaviour
     [SerializeField] private int pickDelay = 1;
     [LunaPlaygroundField("Opponent Throw Delay", 2, "Opponent Settings")]
     [SerializeField] private int throwDelay = 1;
-    [LunaPlaygroundField("Opponent Remaining Turn To Win", 2, "Opponent Settings")]
+    [LunaPlaygroundField("Opponent Remaining Turn To Win", 3, "Opponent Settings")]
     public int opponentWinConditionTargetPlayIndex;
 
     public static CardLayer Instance;
@@ -66,6 +66,8 @@ public class CardLayer : MonoBehaviour
     
     private void Start()
     {
+        Luna.Unity.LifeCycle.GameStarted(); //show end
+        Luna.Unity.Analytics.LogEvent("SuccessfullyLoaded", 2);
         deckController.ShuffleForce(cardsStartCount, deckCardNoList);
         throwController.DiscardForce(discardCardNoList);
         handController.DealForce(handStartCardNoList);
@@ -96,7 +98,7 @@ public class CardLayer : MonoBehaviour
 
     private void OpponentWin()
     {
-        Debug.Log("Opponent Win");
+        Luna.Unity.Analytics.LogEvent("Opponent Win", 0);
     }
     public void PlayOpponent()
     {
@@ -161,7 +163,7 @@ public class CardLayer : MonoBehaviour
             }
             else
             {
-                Luna.Unity.Analytics.LogEvent($"'{trimmedToken}' geçerli bir sayı değil.", 0);
+                Luna.Unity.Analytics.LogEvent($"'{trimmedToken}' geçerli bir sayı değil.", 1);
             }
         }
     }

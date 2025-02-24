@@ -2232,10 +2232,6 @@
                 "excluded": true
             },
             {
-                "name": "UnityEngine.MaterialPropertyBlock",
-                "excluded": true
-            },
-            {
                 "name": "UnityEngine.Networking.UnityWebRequestAsyncOperation",
                 "excluded": true
             },
@@ -2353,10 +2349,6 @@
             },
             {
                 "name": "UnityEngine.Joint",
-                "excluded": true
-            },
-            {
-                "name": "UnityEngine.MeshFilter",
                 "excluded": true
             },
             {
@@ -6808,10 +6800,6 @@
                 "excluded": true
             },
             {
-                "name": "TMPro.TMP_SubMesh",
-                "excluded": true
-            },
-            {
                 "name": "TMPro.TMP_TextUtilities.LineSegment",
                 "excluded": true
             },
@@ -6829,10 +6817,6 @@
             },
             {
                 "name": "TMPro.FloatTween",
-                "excluded": true
-            },
-            {
-                "name": "TMPro.TextMeshPro",
                 "excluded": true
             },
             {
@@ -8452,10 +8436,6 @@
                 "excluded": true
             },
             {
-                "name": "CardLayer.OpponentMoves",
-                "excluded": false
-            },
-            {
                 "name": "CardSource",
                 "excluded": false
             },
@@ -8521,6 +8501,10 @@
             },
             {
                 "name": "DG.Tweening.Plugins.Core.ITPlugin$4",
+                "excluded": false
+            },
+            {
+                "name": "GameActionButtonType",
                 "excluded": false
             }
         ],
@@ -9005,7 +8989,7 @@
                     },
                     {
                         "name": "tryParseInt",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "parseIntStyles",
@@ -10957,7 +10941,7 @@
                 "instanceMethods": [
                     {
                         "name": "getDefaultValue",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "init",
@@ -12171,7 +12155,7 @@
                     },
                     {
                         "name": "remove",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "GetEnumerator",
@@ -15141,7 +15125,7 @@
                     },
                     {
                         "name": "InternalErrorShaderMaterial#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "Blit",
@@ -17281,7 +17265,7 @@
                     },
                     {
                         "name": "name#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "mainTexture#get",
@@ -17305,11 +17289,11 @@
                     },
                     {
                         "name": "shader#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "passCount#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "renderQueue#get",
@@ -17353,7 +17337,7 @@
                     },
                     {
                         "name": "$ctor2",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "CopyPropertiesFromMaterial",
@@ -18909,7 +18893,7 @@
                     },
                     {
                         "name": "receiveShadows#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "shadowCastingMode#get",
@@ -18917,7 +18901,7 @@
                     },
                     {
                         "name": "shadowCastingMode#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "motionVectorGenerationMode#get",
@@ -18945,7 +18929,7 @@
                     },
                     {
                         "name": "sharedMaterial#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "sharedMaterial#set",
@@ -19089,7 +19073,7 @@
                     },
                     {
                         "name": "SetPropertyBlock$1",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "HasPropertyBlock",
@@ -19441,7 +19425,7 @@
                     },
                     {
                         "name": "color#get",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "color#set",
@@ -23245,7 +23229,7 @@
                     },
                     {
                         "name": "text#set",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "textPreprocessor#get",
@@ -28971,7 +28955,7 @@
                     },
                     {
                         "name": "RegisterTextElementForGraphicRebuild",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "RegisterTextElementForCullingUpdate",
@@ -28979,11 +28963,11 @@
                     },
                     {
                         "name": "UnRegisterTextObjectForUpdate",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "UnRegisterTextElementForRebuild",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "init",
@@ -29003,7 +28987,7 @@
                     },
                     {
                         "name": "InternalRegisterTextElementForGraphicRebuild",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "InternalRegisterTextElementForCullingUpdate",
@@ -29019,15 +29003,15 @@
                     },
                     {
                         "name": "InternalUnRegisterTextElementForGraphicRebuild",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "InternalUnRegisterTextElementForLayoutRebuild",
-                        "excluded": true
+                        "excluded": false
                     },
                     {
                         "name": "InternalUnRegisterTextObjectForUpdate",
-                        "excluded": true
+                        "excluded": false
                     }
                 ]
             },
@@ -29300,15 +29284,17 @@
                     {
                         "name": "OpponentThrowCard",
                         "excluded": false
-                    }
-                ]
-            },
-            {
-                "className": "CardLayer.OpponentPlay",
-                "staticMethods": [],
-                "instanceMethods": [
+                    },
                     {
-                        "name": "init",
+                        "name": "OnHandDeadWoodChanged",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OpponentWin",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ConvertList",
                         "excluded": false
                     }
                 ]
@@ -31786,10 +31772,798 @@
                     {
                         "name": "Tick",
                         "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.MeshFilter",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "mesh#get",
+                        "excluded": true
                     },
                     {
-                        "name": "Tick\",this)}this.c$-=t;if(this.c$<=0){pc.Application.getApplication().events.off(\"update",
+                        "name": "mesh#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sharedMesh#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sharedMesh#set",
                         "excluded": false
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "UpdateMeshInHandle",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "TMPro.TMP_SubMesh",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "AddSubTextObject",
+                        "excluded": true
+                    },
+                    {
+                        "name": "fontAsset#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "fontAsset#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "spriteAsset#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "spriteAsset#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "material#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "material#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sharedMaterial#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sharedMaterial#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "fallbackMaterial#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "fallbackMaterial#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "fallbackSourceMaterial#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "fallbackSourceMaterial#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "isDefaultMaterial#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "isDefaultMaterial#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "padding#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "padding#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "renderer#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "meshFilter#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "mesh#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "mesh#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "textComponent#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnEnable",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnDisable",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnDestroy",
+                        "excluded": true
+                    },
+                    {
+                        "name": "DestroySelf",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetMaterial",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CreateMaterialInstance",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetSharedMaterial",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetSharedMaterial",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetPaddingForMaterial",
+                        "excluded": true
+                    },
+                    {
+                        "name": "UpdateMeshPadding",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetVerticesDirty",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetMaterialDirty",
+                        "excluded": true
+                    },
+                    {
+                        "name": "UpdateMaterial",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "TMPro.TextMeshPro",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "sortingLayerID#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sortingLayerID#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sortingOrder#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "sortingOrder#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "autoSizeTextContainer#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "autoSizeTextContainer#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "textContainer#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "transform$2#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "renderer#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "mesh#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "meshFilter#get",
+                        "excluded": false
+                    },
+                    {
+                        "name": "maskType#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "maskType#set",
+                        "excluded": true
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetMask",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetMask$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetMask$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetVerticesDirty",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetLayoutDirty",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetMaterialDirty",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetAllDirty",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Rebuild",
+                        "excluded": false
+                    },
+                    {
+                        "name": "UpdateMaterial",
+                        "excluded": false
+                    },
+                    {
+                        "name": "UpdateMeshPadding",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ForceMeshUpdate",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetTextInfo",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ClearMesh$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "UpdateGeometry$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "UpdateVertexData$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "UpdateVertexData",
+                        "excluded": true
+                    },
+                    {
+                        "name": "UpdateFontAsset",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CalculateLayoutInputHorizontal",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CalculateLayoutInputVertical",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnAfterDeserialize",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Awake",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnEnable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDisable",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDestroy",
+                        "excluded": true
+                    },
+                    {
+                        "name": "LoadFontAsset",
+                        "excluded": false
+                    },
+                    {
+                        "name": "UpdateEnvMapMatrix",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetMaskCoordinates",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetMaskCoordinates$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "EnableMasking",
+                        "excluded": true
+                    },
+                    {
+                        "name": "DisableMasking",
+                        "excluded": true
+                    },
+                    {
+                        "name": "UpdateMask",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetMaterial",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetMaterials",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetSharedMaterial",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetSharedMaterials",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetSharedMaterials",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetOutlineThickness",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetFaceColor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetOutlineColor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CreateMaterialInstance$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetShaderDepth",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetCulling",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetPerspectiveCorrection",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetArraySizes",
+                        "excluded": false
+                    },
+                    {
+                        "name": "ComputeMarginSize",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnDidApplyAnimationProperties",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnTransformParentChanged",
+                        "excluded": true
+                    },
+                    {
+                        "name": "OnRectTransformDimensionsChange",
+                        "excluded": true
+                    },
+                    {
+                        "name": "InternalUpdate",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnPreRenderObject",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GenerateTextMesh",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetTextContainerLocalCorners",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetMeshFilters",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetActiveSubMeshes",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetActiveSubTextObjectRenderers",
+                        "excluded": false
+                    },
+                    {
+                        "name": "DestroySubMeshObjects",
+                        "excluded": true
+                    },
+                    {
+                        "name": "UpdateSubMeshSortingLayerID",
+                        "excluded": true
+                    },
+                    {
+                        "name": "UpdateSubMeshSortingOrder",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetCompoundBounds",
+                        "excluded": true
+                    },
+                    {
+                        "name": "UpdateSDFScale",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "GameActionButton",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "GetActionButtonType",
+                        "excluded": false
+                    },
+                    {
+                        "name": "init",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Start",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Refresh",
+                        "excluded": false
+                    },
+                    {
+                        "name": "GetButtonTexture",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetButtonTexture",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Show",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Hide",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Update",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnMouseUp",
+                        "excluded": false
+                    },
+                    {
+                        "name": "OnMouseDown",
+                        "excluded": false
+                    },
+                    {
+                        "name": "isFingerOnButton",
+                        "excluded": false
+                    }
+                ]
+            },
+            {
+                "className": "UIExtensions",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "SetTransparency",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetAnchoredPosition",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetSizeDelta",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ActiveChildCount",
+                        "excluded": true
+                    },
+                    {
+                        "name": "TranslatePosition",
+                        "excluded": true
+                    }
+                ]
+            },
+            {
+                "className": "UnityEngine.MaterialPropertyBlock",
+                "staticMethods": [],
+                "instanceMethods": [
+                    {
+                        "name": "isEmpty#get",
+                        "excluded": true
+                    },
+                    {
+                        "name": "ctor",
+                        "excluded": false
+                    },
+                    {
+                        "name": "Clear",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetParameter$3",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetParameter$4",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetParameter$5",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetParameter",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetParameter$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetParameter$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetFloat$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetFloat",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetFloat$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetFloat",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetInt$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetInt",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetInt$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetInt",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetMatrix$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetMatrix",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetMatrix$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetMatrix",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetTexture$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetTexture",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetTexture$1",
+                        "excluded": false
+                    },
+                    {
+                        "name": "SetTexture",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetColor$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetColor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetColor$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetColor",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetVector$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetVector",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetVector$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetVector",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetFloatArray$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetFloatArray",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetFloatArray$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetFloatArray",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetMatrixArray$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetMatrixArray",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetMatrixArray$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetMatrixArray",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetVectorArray$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "GetVectorArray",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetVectorArray$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetVectorArray",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetBuffer$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetBuffer",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetConstantBuffer$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "SetConstantBuffer",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CopyProbeOcclusionArrayFrom$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CopyProbeOcclusionArrayFrom",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CopyProbeOcclusionArrayFrom$3",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CopyProbeOcclusionArrayFrom$1",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CopySHCoefficientArraysFrom",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CopySHCoefficientArraysFrom$2",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CopySHCoefficientArraysFrom$3",
+                        "excluded": true
+                    },
+                    {
+                        "name": "CopySHCoefficientArraysFrom$1",
+                        "excluded": true
                     }
                 ]
             }

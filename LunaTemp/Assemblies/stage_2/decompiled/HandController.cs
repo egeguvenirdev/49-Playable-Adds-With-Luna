@@ -65,6 +65,7 @@ public class HandController : MonoBehaviour
 		{
 			HandCardNoList = new List<int>(handCardNoList);
 			int[] result = GetDeadWoodScore();
+			CardLayer.Instance.OnHandDeadWoodChanged(result[0] - result[1]);
 		}
 	}
 
@@ -154,7 +155,7 @@ public class HandController : MonoBehaviour
 		if (!_cardList.Contains(card))
 		{
 			Transform slot = GetSlot();
-			if (index == -1 || index == CardCount - 1)
+			if (index == -1 || index > CardCount - 1)
 			{
 				_cardList.Add(card);
 				if (!_slotList.Contains(slot))
@@ -299,6 +300,7 @@ public class HandController : MonoBehaviour
 		_cachedSortedHand = new List<Card>(_cardList);
 		UpdateCardHighlights();
 		SetCardSortingOrder();
+		CheckHandChange();
 	}
 
 	private HandEvaluator.Result SplitIntoMeldsOptimization(List<Card> cards)

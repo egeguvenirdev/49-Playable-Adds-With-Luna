@@ -32,8 +32,9 @@ public class GameActionButton : MonoBehaviour
             ,
             _ => GameActionButtonType.None
         };
-    }    
-    
+    }
+
+    [SerializeField] private GameObject holder;
     [SerializeField] private LayerMask gameActionButtonLayerMask;
     [SerializeField] private float moveUpY, moveDownY;
 
@@ -107,21 +108,14 @@ public class GameActionButton : MonoBehaviour
     {
         if (_isShown) return;
         _isShown = true;
-        buttonTransform.localPosition =
-            new Vector3(buttonTransform.localPosition.x, moveUpY, buttonTransform.localPosition.z);
-        shadowSpriteRenderer.SetTransparency(.8f);
-        frameSpriteRenderer.SetTransparency(.8f*.43f);
-
+        holder.SetActive(true);
     }
 
     private void Hide()
     {
         if(!_isShown) return;
         _isShown = false;
-        shadowSpriteRenderer.SetTransparency(0f);
-        frameSpriteRenderer.SetTransparency(0f);
-        buttonTransform.localPosition =
-            new Vector3(buttonTransform.localPosition.x, moveDownY, buttonTransform.localPosition.z);    
+        holder.SetActive(false);
     }
     
     private void Update()
@@ -140,8 +134,8 @@ public class GameActionButton : MonoBehaviour
         if (isFingerOnButton() && !Utils.IsOverUIElement())
         {
             _isShown = false;
-            //todo: Go To store page
-            return;
+            Luna.Unity.Analytics.LogEvent(Luna.Unity.Analytics.EventType.EndCardShown);
+            Luna.Unity.LifeCycle.GameEnded(); //show end
         }
     }
     
