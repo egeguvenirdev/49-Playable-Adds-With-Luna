@@ -2085,7 +2085,7 @@ Deserializers.productName = "My project";
 
 Deserializers.lunaInitializationTime = "02/13/2025 12:27:01";
 
-Deserializers.lunaDaysRunning = "10.9";
+Deserializers.lunaDaysRunning = "11.0";
 
 Deserializers.lunaVersion = "6.2.1";
 
@@ -2115,9 +2115,9 @@ Deserializers.isAntiAliasingEnabled = "False";
 
 Deserializers.isRuntimeAnalysisEnabledForCode = "False";
 
-Deserializers.runtimeAnalysisExcludedClassesCount = "1736";
+Deserializers.runtimeAnalysisExcludedClassesCount = "1735";
 
-Deserializers.runtimeAnalysisExcludedMethodsCount = "4212";
+Deserializers.runtimeAnalysisExcludedMethodsCount = "4247";
 
 Deserializers.runtimeAnalysisExcludedModules = "physics2d, particle-system, mecanim-wasm";
 
@@ -2141,7 +2141,7 @@ Deserializers.graphicsConstraint = 28;
 
 Deserializers.linearColorSpace = false;
 
-Deserializers.buildID = "1e74031d-e4ba-40de-91cd-4d207ecebbfc";
+Deserializers.buildID = "0a047ee4-b8b8-4796-8249-a792099118df";
 
 Deserializers.runtimeInitializeOnLoadInfos = [[["UnityEngine","Experimental","Rendering","ScriptableRuntimeReflectionSystemSettings","ScriptingDirtyReflectionSystemInstance"]],[["Unity","VisualScripting","RuntimeVSUsageUtility","RuntimeInitializeOnLoadBeforeSceneLoad"]],[["$BurstDirectCallInitializer","Initialize"],["$BurstDirectCallInitializer","Initialize"],["$BurstDirectCallInitializer","Initialize"],["$BurstDirectCallInitializer","Initialize"]],[],[]];
 
