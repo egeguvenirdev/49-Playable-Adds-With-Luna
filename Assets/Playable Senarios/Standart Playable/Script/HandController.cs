@@ -37,7 +37,7 @@ public class HandController : MonoBehaviour
         HandCardNoList = new List<int>(handCardNoList);
         var result = GetDeadWoodScore();
        // cardLayer.OnHandChanged?.Invoke(HandCardNoList);
-        //cardLayer.OnHandDeadWoodChanged?.Invoke(result[0]-result[1], result[0]);
+       CardLayer.Instance.OnHandDeadWoodChanged(result[0]-result[1]);
     }
     private int[] GetDeadWoodScore()
     {
@@ -245,7 +245,7 @@ public class HandController : MonoBehaviour
         _cachedSortedHand = new List<Card>(_cardList);
         UpdateCardHighlights();
         SetCardSortingOrder();
-        //CheckHandChange();
+        CheckHandChange();
     }   
 
     

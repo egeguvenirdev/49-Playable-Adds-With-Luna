@@ -40,10 +40,12 @@ public class CardLayer : MonoBehaviour
     public ThrowController throwController;
     public DragController dragController;
     public OpponentController opponentController;
-    
+    public GameActionButton gameActionButton;
     [Header("Data")]
     [SerializeField] private int cardsStartCount = 52;
     public int _opponentPlayCounter = 0;
+    public int straightGin;
+    public int opponentWinConditionTargetPlayIndex;
     
     private void Awake()
     {
@@ -71,10 +73,27 @@ public class CardLayer : MonoBehaviour
 
     public void ChangeTurn()
     {
+        if (_opponentPlayCounter >= opponentWinConditionTargetPlayIndex)
+        {
+            OpponentWin();
+            return;
+        }
         myTurn = !myTurn;
         dragController.SetTurn(myTurn);
         if (!myTurn)
             PlayOpponent();
+    }
+
+    public void OnHandDeadWoodChanged(int knockValue)
+    {
+        var buttonFlag = 
+            (handController.CardCount <= 10 || (straightGin == 1 && knockValue > 0)) ? -2 : knockValue;
+        gameActionButton.Refresh(buttonFlag);
+    }
+
+    private void OpponentWin()
+    {
+        Debug.Log("Opponent Win");
     }
     public void PlayOpponent()
     {
