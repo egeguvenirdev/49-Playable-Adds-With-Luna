@@ -36,6 +36,7 @@ public class CardLayer : MonoBehaviour
     [LunaPlaygroundField("Opponent Remaining Turn To Win", 3, "Opponent Settings")]
     public int opponentWinConditionTargetPlayIndex;
 
+    [SerializeField] private GameManager gameManager;
     public static CardLayer Instance;
     public CardPool cardPool;
     
@@ -99,6 +100,7 @@ public class CardLayer : MonoBehaviour
     private void OpponentWin()
     {
         Luna.Unity.Analytics.LogEvent("Opponent Win", 0);
+        gameManager.ShowEndCard();
     }
     
     public void PlayOpponent()
