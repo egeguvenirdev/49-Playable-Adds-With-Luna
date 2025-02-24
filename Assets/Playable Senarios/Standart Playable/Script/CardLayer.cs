@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,8 +12,26 @@ public class CardLayer : MonoBehaviour
     public bool myTurn = true;
     
     [LunaPlaygroundField("Last Discarded Card", 1, "Card / Hand Settings")]
-    [SerializeField] private List<int> discardCardNoList = new();
+    public string discardedCards = "1,2,3";
+    private List<int> discardCardNoList = new();
+    [LunaPlaygroundField("Player Hand Start Card List", 2, "Card / Hand Settings")]
+    public string handStartCards = "1";
+    private List<int> handStartCardNoList = new();
+    [LunaPlaygroundField("Deck Card List", 3, "Card / Hand Settings")]
+    public string deckCards = "1";
+    private List<int> deckCardNoList = new();
+    [LunaPlaygroundField("Opponent Throw Card List", 4, "Card / Hand Settings")]
+    public string opponentThrowCardNo = "1";
+    private List<int> opponentThrowCardNoList = new();
+    [LunaPlaygroundField("Opponent Move List -> 1 From deck, 0 from thrown", 5, "Card / Hand Settings")]
+    public string opponentPlay = "1";
+    private List<int> opponentPlayList = new();
     
+    [LunaPlaygroundField("Opponent Pick Delay", 1, "Opponent Settings")]
+    [SerializeField] private int pickDelay = 1;
+    [LunaPlaygroundField("Opponent Throw Delay", 2, "Opponent Settings")]
+    [SerializeField] private int throwDelay = 1;
+
     public static CardLayer Instance;
     public CardPool cardPool;
     
@@ -23,33 +42,23 @@ public class CardLayer : MonoBehaviour
     public OpponentController opponentController;
     
     [Header("Data")]
-    [SerializeField] private List<int> handStartCardNoList = new();
     [SerializeField] private int cardsStartCount = 52;
-    [SerializeField] private List<int> deckCardNoList;
-    [SerializeField] private List<int> opponentThrowCardNoList = new();
     public int _opponentPlayCounter = 0;
-
-    public enum OpponentMoves
-    {
-        PickFromThrow,
-        PickFromDeck,
-    }
-    [Serializable]
-    public class OpponentPlay
-    {
-        public OpponentMoves move;
-        public float pickDelay = 1f;
-        public float throwDelay = 1f;
-    }
-
-    public List<OpponentPlay> opponentPlayList = new();
+    
     private void Awake()
     {
+        ConvertList(discardedCards, discardCardNoList);
+        ConvertList(handStartCards, handStartCardNoList);
+        ConvertList(deckCards, deckCardNoList);
+        ConvertList(opponentThrowCardNo, opponentThrowCardNoList);
+        ConvertList(opponentPlay, opponentPlayList);
+        
         Input.multiTouchEnabled = false;
         Instance = this;
         handController.Init();
         dragController.Init();
     }
+    
     private void Start()
     {
         deckController.ShuffleForce(cardsStartCount, deckCardNoList);
@@ -70,13 +79,13 @@ public class CardLayer : MonoBehaviour
     public void PlayOpponent()
     {
         var play = opponentPlayList[_opponentPlayCounter];
-        switch (play.move)
+        switch (play)
         {
-            case OpponentMoves.PickFromDeck:
-                Invoke(nameof(OpponentPickCardFromDeck), play.pickDelay);
+            case 1:
+                Invoke(nameof(OpponentPickCardFromDeck), pickDelay);
                 break;
-            case OpponentMoves.PickFromThrow:
-                Invoke(nameof(OpponentPickCardFromThrow), play.pickDelay);
+            case 2:
+                Invoke(nameof(OpponentPickCardFromThrow), pickDelay);
                 break;
             default:
                 break;
@@ -89,7 +98,6 @@ public class CardLayer : MonoBehaviour
         var card = throwController.GetCard();
         opponentController.Add(card);
         _pickCardOpponent = opponentController.UpdatePositions(card);
-        var throwDelay = opponentPlayList[_opponentPlayCounter].throwDelay;
         _pickCardOpponent.OnComplete(() =>
         {
             Invoke(nameof(OpponentThrowCard), throwDelay);
@@ -100,7 +108,6 @@ public class CardLayer : MonoBehaviour
         var card = deckController.GetCard();
         opponentController.Add(card);
         _pickCardOpponent = opponentController.UpdatePositions(card);
-        var throwDelay = opponentPlayList[_opponentPlayCounter].throwDelay;
         _pickCardOpponent.OnComplete(() =>
         {
             Invoke(nameof(OpponentThrowCard), throwDelay);
@@ -114,6 +121,27 @@ public class CardLayer : MonoBehaviour
         throwController.UpdatePositions(card);
         _opponentPlayCounter++;
         ChangeTurn();
+    }
+
+    private void ConvertList(string input, List<int> targetList)
+    {
+        if (string.IsNullOrWhiteSpace(input)) return;
+
+        string[] tokens = input.Split(',');
+
+        foreach (string token in tokens)
+        {
+            string trimmedToken = token.Trim();
+
+            if (int.TryParse(trimmedToken, out int number))
+            {
+                targetList.Add(number);
+            }
+            else
+            {
+                Luna.Unity.Analytics.LogEvent($"'{trimmedToken}' geçerli bir sayı değil.", 0);
+            }
+        }
     }
 }
 

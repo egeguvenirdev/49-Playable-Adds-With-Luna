@@ -274,79 +274,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTurn: 1
-  discardCardNoList: 0a000000
+  discardedCards: 1
+  handStartCards: 1,2,3,4,5,6,7,8,9,10
+  deckCards: 14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14
+  opponentThrowCardNo: 21,22,23,24,25,26,27,28
+  opponentPlay: 1,0,0,0,1,0
+  pickDelay: 1
+  throwDelay: 1
   cardPool: {fileID: 63589893}
   handController: {fileID: 1097424265}
   deckController: {fileID: 1657524480}
   throwController: {fileID: 1740051630}
   dragController: {fileID: 423464774}
   opponentController: {fileID: 350861029}
-  handStartCardNoList: 00000000010000000200000003000000040000000500000006000000070000000800000009000000
   cardsStartCount: 32
-  deckCardNoList: 0b0000000c0000000d0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e0000000e000000
-  opponentThrowCardNoList: 15000000160000001700000018000000190000001a0000001b0000001c000000
   _opponentPlayCounter: 0
-  opponentPlayList:
-  - move: 0
-    pickDelay: 1
-    throwDelay: 1
-  - move: 0
-    pickDelay: 1
-    throwDelay: 1
-  - move: 0
-    pickDelay: 1
-    throwDelay: 1
-  - move: 0
-    pickDelay: 1
-    throwDelay: 1
-  - move: 0
-    pickDelay: 1
-    throwDelay: 1
-  - move: 0
-    pickDelay: 1
-    throwDelay: 1
-  - move: 0
-    pickDelay: 1
-    throwDelay: 1
-  - move: 0
-    pickDelay: 1
-    throwDelay: 1
-  - move: 0
-    pickDelay: 1
-    throwDelay: 1
-  - move: 0
-    pickDelay: 1
-    throwDelay: 1
-  - move: 0
-    pickDelay: 1
-    throwDelay: 1
-  - move: 0
-    pickDelay: 1
-    throwDelay: 1
-  - move: 0
-    pickDelay: 1
-    throwDelay: 1
-  - move: 0
-    pickDelay: 1
-    throwDelay: 1
-  - move: 0
-    pickDelay: 1
-    throwDelay: 1
-  - move: 0
-    pickDelay: 1
-    throwDelay: 1
-  - move: 0
-    pickDelay: 1
-    throwDelay: 1
-  - move: 0
-    pickDelay: 1
-    throwDelay: 1
-  - move: 0
-    pickDelay: 1
-    throwDelay: 1
-  - move: 0
-    pickDelay: 1
-    throwDelay: 1
 --- !u!114 &63589893
 MonoBehaviour:
   m_ObjectHideFlags: 0
