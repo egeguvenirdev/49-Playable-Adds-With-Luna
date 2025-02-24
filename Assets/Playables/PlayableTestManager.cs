@@ -70,7 +70,7 @@ public class PlayableTestManager : MonoBehaviour
 
     public void InstallFullGame()
     {
-        Luna.Unity.Playable.InstallFullGame();
+
     }
 
     public void ShowEnd()

@@ -33,19 +33,17 @@ public class GameActionButton : MonoBehaviour
             _ => GameActionButtonType.None
         };
     }
-
+    
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private GameObject holder;
     [SerializeField] private LayerMask gameActionButtonLayerMask;
     [SerializeField] private float moveUpY, moveDownY;
-
-    
     
     [SerializeField] private Texture textureGin, texturePass, textureKnock;
     [SerializeField] private MeshRenderer buttonMeshRenderer;
     [SerializeField] private Transform buttonTransform;
     [SerializeField] private TextMeshPro knockValueText;
     [SerializeField] private float rayDistance = 50f;
-    
     
     [SerializeField] private SpriteRenderer shadowSpriteRenderer;
     [SerializeField] private Transform shadowTransform;
@@ -134,8 +132,7 @@ public class GameActionButton : MonoBehaviour
         if (isFingerOnButton() && !Utils.IsOverUIElement())
         {
             _isShown = false;
-            Luna.Unity.Analytics.LogEvent(Luna.Unity.Analytics.EventType.EndCardShown);
-            Luna.Unity.LifeCycle.GameEnded(); //show end
+            gameManager.ShowEndCard();
         }
     }
     

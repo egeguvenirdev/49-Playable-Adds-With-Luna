@@ -184,10 +184,6 @@ public class CardLayer : MonoBehaviour
 			{
 				targetList.Add(number);
 			}
-			else
-			{
-				Analytics.LogEvent("'" + trimmedToken + "' geçerli bir sayı değil.", 1);
-			}
 		}
 	}
 }

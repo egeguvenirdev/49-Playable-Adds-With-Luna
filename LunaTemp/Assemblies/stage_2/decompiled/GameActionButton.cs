@@ -1,10 +1,12 @@
 using System;
-using Luna.Unity;
 using TMPro;
 using UnityEngine;
 
 public class GameActionButton : MonoBehaviour
 {
+	[SerializeField]
+	private GameManager gameManager;
+
 	[SerializeField]
 	private GameObject holder;
 
@@ -210,8 +212,7 @@ public class GameActionButton : MonoBehaviour
 			if (isFingerOnButton() && !Utils.IsOverUIElement())
 			{
 				_isShown = false;
-				Analytics.LogEvent(Analytics.EventType.EndCardShown);
-				LifeCycle.GameEnded();
+				gameManager.ShowEndCard();
 			}
 		}
 	}

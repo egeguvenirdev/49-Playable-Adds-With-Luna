@@ -100,6 +100,7 @@ public class CardLayer : MonoBehaviour
     {
         Luna.Unity.Analytics.LogEvent("Opponent Win", 0);
     }
+    
     public void PlayOpponent()
     {
         var play = opponentPlayList[_opponentPlayCounter];
@@ -127,6 +128,7 @@ public class CardLayer : MonoBehaviour
             Invoke(nameof(OpponentThrowCard), throwDelay);
         });
     }
+    
     public void OpponentPickCardFromDeck()
     {
         var card = deckController.GetCard();
@@ -137,6 +139,7 @@ public class CardLayer : MonoBehaviour
             Invoke(nameof(OpponentThrowCard), throwDelay);
         }); 
     }
+    
     public void OpponentThrowCard()
     {
         var card = opponentController.GetCard();
@@ -164,7 +167,6 @@ public class CardLayer : MonoBehaviour
         }
     }
 }
-
 
 public static class Utils
 {

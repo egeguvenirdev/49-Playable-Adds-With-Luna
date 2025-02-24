@@ -87,7 +87,6 @@ public class PlayableTestManager : MonoBehaviour
 
 	public void InstallFullGame()
 	{
-		Playable.InstallFullGame();
 	}
 
 	public void ShowEnd()
