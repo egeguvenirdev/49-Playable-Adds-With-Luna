@@ -276,9 +276,9 @@ MonoBehaviour:
   myTurn: 1
   discardedCards: 1
   handStartCards: 1,2,3,4,5,6,7,8,9,10
-  deckCards: 14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14
-  opponentThrowCardNo: 21,22,23,24,25,26,27,28
-  opponentPlay: 1,0,0,0,1,0
+  deckCards: 1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,,1,2,3,4,5,6,7,8,9,10,1,2
+  opponentThrowCardNo: 5,6,7,8,9
+  opponentPlay: 1
   pickDelay: 1
   throwDelay: 1
   cardPool: {fileID: 63589893}

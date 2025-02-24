@@ -11,7 +11,7 @@ public class DeckController : CardPile
         {
             var card = CardLayer.Instance.cardPool.GetCard();
             Add(card, i);
-            card.No = deckCardNoList[^(i+1)];
+            card.No = deckCardNoList[deckCardNoList.Count - 1 - i];
             Slots[i].transform.localPosition = offset * i;
             card.transform.SetParent(Slots[i]);
             card.transform.localPosition = Vector3.zero;
